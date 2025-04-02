@@ -3,6 +3,6 @@ import { getCommentsHandler } from "../controllers/comment.controller";
 import asyncHandler from "../utils/asyncHandler";
 
 const router = Router();
-router.get("/", asyncHandler(getCommentsHandler));
+router.get("/:postId", asyncHandler(getCommentsHandler));
 
 export default router;
