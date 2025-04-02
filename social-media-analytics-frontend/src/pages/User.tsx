@@ -23,7 +23,7 @@ const UserPosts = () => {
   }, [userId]);
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="mx-auto p-6">
       <h2 className="text-3xl font-bold text-center mb-6">User's Posts</h2>
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <ul className="space-y-3">

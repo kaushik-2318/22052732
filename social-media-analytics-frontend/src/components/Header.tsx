@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LayoutGrid, Users, MessageSquare } from "lucide-react";
+import { LayoutGrid } from "lucide-react";
 
 export default function Header() {
   return (
@@ -13,30 +13,6 @@ export default function Header() {
             SocialHub
           </span>
         </Link>
-
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-sm font-medium hover:text-[#7a33ff] transition-colors"
-          >
-            <LayoutGrid className="h-4 w-4" />
-            Dashboard
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-sm font-medium hover:text-[#7a33ff] transition-colors"
-          >
-            <Users className="h-4 w-4" />
-            Users
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-sm font-medium hover:text-[#7a33ff] transition-colors"
-          >
-            <MessageSquare className="h-4 w-4" />
-            Posts
-          </Link>
-        </nav>
       </div>
     </header>
   );

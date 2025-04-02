@@ -12,9 +12,19 @@ export const getUsers = async () => {
     }
 };
 
-export const getPosts = async (type: "latest" | "popular") => {
+export const getLatestPosts = async () => {
     try {
-        const response = await axios.get(`${API_BASE_URL}/posts?type=${type}`);
+        const response = await axios.get(`${API_BASE_URL}/posts?type=latest`);
+        return response.data.posts;
+    } catch (error) {
+        console.error("Error fetching posts:", error);
+        return [];
+    }
+};
+
+export const getPopularPosts = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/posts?type=popular`);
         return response.data.posts;
     } catch (error) {
         console.error("Error fetching posts:", error);

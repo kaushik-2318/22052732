@@ -18,9 +18,9 @@ export default function LatestPosts({ posts, users }: LatestPostsProps) {
           return <PostCard key={post.id} post={post} user={user} />;
         })
       ) : (
-        <div className="text-center py-12 bg-muted/50 rounded-xl">
-          <MessageSquare className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-          <p className="text-muted-foreground">No posts available</p>
+        <div className="text-center py-12 bg-[#f4f4f5]/50 rounded-xl">
+          <MessageSquare className="h-12 w-12 mx-auto text-[#0a0a0a] mb-4" />
+          <p className="text-[#0a0a0a]">No posts available</p>
         </div>
       )}
     </div>

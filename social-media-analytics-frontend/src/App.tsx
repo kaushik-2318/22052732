@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-// import UserPosts from "./pages/User.tsx";
+import UserPosts from "./pages/User.tsx";
 import Header from "./components/Header.tsx";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/users/:userId" element={<UserPosts />} /> */}
+          <Route path="/users/:userId" element={<UserPosts />} />
         </Routes>
       </div>
     </div>

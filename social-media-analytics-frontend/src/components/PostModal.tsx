@@ -18,7 +18,6 @@ export default function PostModal({
   isOpen,
   onClose,
 }: PostModalProps) {
-  // Handle escape key press to close modal
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -26,7 +25,6 @@ export default function PostModal({
 
     if (isOpen) {
       document.addEventListener("keydown", handleEsc);
-      // Prevent scrolling when modal is open
       document.body.style.overflow = "hidden";
     }
 
@@ -43,7 +41,6 @@ export default function PostModal({
       <div className="absolute inset-0" onClick={onClose} aria-hidden="true" />
 
       <div className="relative bg-card w-full max-w-2xl max-h-[90vh] rounded-xl shadow-xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
-        {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <div className="flex items-center">
             <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary/80 to-secondary/80 flex items-center justify-center text-sm font-bold text-white mr-3 shadow-md">
@@ -68,7 +65,6 @@ export default function PostModal({
           </button>
         </div>
 
-        {/* Content */}
         <div className="p-4 overflow-y-auto flex-1">
           <h2 className="text-xl font-semibold mb-3">{post.title}</h2>
           <p className="text-muted-foreground mb-6">{post.body}</p>
@@ -84,7 +80,6 @@ export default function PostModal({
             </div>
           </div>
 
-          {/* Comments section */}
           <div className="space-y-4">
             <h3 className="font-medium text-lg">Comments</h3>
 

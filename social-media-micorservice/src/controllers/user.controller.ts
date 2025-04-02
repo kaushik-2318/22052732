@@ -5,7 +5,16 @@ import { User } from "../types";
 export async function getUsersHandler(req: Request, res: Response, next: NextFunction) {
     try {
         const users: User[] = await fetchUsers();
-        
+        res.json({ users });
+    } catch (error) {
+        next(error);
+    }
+}
+
+export async function getTopUsersHandler(req: Request, res: Response, next: NextFunction) {
+    try {
+        const users: User[] = await fetchUsers();
+
         const topUsers = users
             .map(user => ({
                 userId: user.id,

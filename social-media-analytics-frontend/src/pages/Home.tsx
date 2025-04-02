@@ -1,11 +1,28 @@
 import UsersList from "../components/UserList";
-// import LatestPosts from "../components/LatestPosts.tsx";
-// import PopularPosts from "../components/PopularPosts.tsx";
-// import { fetchUsers, fetchPosts } from "../lib/api";
+import LatestPosts from "../components/LatestPosts.tsx";
+import PopularPosts from "../components/PopularPosts.tsx";
 import { Users, MessageSquare } from "lucide-react";
-import { fetchUsers } from "../lib/api";
+import { getUsers, getLatestPosts, getPopularPosts } from "../services/api";
+import { useEffect, useState } from "react";
+import { Post, User } from "../lib/types";
 
 function Home() {
+
+  const [users, setUsers] = useState<User[]>([]);
+  const [latestPosts, setLatestPosts] = useState<Post[]>([]);
+  const [popularPosts, setPopularPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    getUsers().then((users) => {
+      setUsers(users);
+    });
+    getLatestPosts().then((posts) => {
+      setLatestPosts(posts);
+    });
+    getPopularPosts().then((posts) => {
+      setPopularPosts(posts);
+    });
+  }, []);
   
   return (
     <main className="mx-auto px-4 py-8">
@@ -39,7 +56,7 @@ function Home() {
             </div>
             <h2 className="text-xl font-semibold">Latest Posts</h2>
           </div>
-          {/* <LatestPosts posts={latestPosts} users={users} /> */}
+          <LatestPosts posts={latestPosts} users={users} />
         </div>
 
         <div className="md:col-span-1">
@@ -49,7 +66,7 @@ function Home() {
             </div>
             <h2 className="text-xl font-semibold">Popular Posts</h2>
           </div>
-          {/* <PopularPosts posts={popularPosts} users={users} /> */}
+          <PopularPosts posts={popularPosts} users={users} />
         </div>
       </div>
     </main>
